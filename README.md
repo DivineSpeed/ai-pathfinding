@@ -1,8 +1,25 @@
 # 🧠 Algorithmes de Recherche en IA
 
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7.3-646CFF?style=flat&logo=vite&logoColor=white)
+![License](https://img.shields.io/badge/License-Academic-blue?style=flat)
+![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=flat&logo=vercel&logoColor=white)
+
 Application web React pour visualiser et comparer les algorithmes de recherche (BFS, DFS, A*) sur des problèmes de labyrinthe.
 
 **Projet réalisé dans le cadre du module Intelligence Artificielle, FST 2024-2025**
+
+---
+
+## 🌐 Live Demo
+
+🔗 **[Voir l'application en ligne](https://ai-pathfinding.vercel.app/)**
+
+---
+
+## 📸 Aperçu
+
+![Demo](./demo.gif)
 
 ---
 

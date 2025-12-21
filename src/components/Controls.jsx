@@ -1,6 +1,13 @@
+/**
+ * Composant Controls - Panneau de contrôle de l'application
+ */
+
 import React from 'react';
 import './Controls.css';
 
+/**
+ * Panneau de contrôle pour la configuration des algorithmes
+ */
 const Controls = ({
   gridSize,
   setGridSize,
@@ -18,9 +25,11 @@ const Controls = ({
     <div className="controls-panel">
       <h2>Contrôles de Visualisation</h2>
 
+      {/* Sélection du mode de terrain */}
       <div className="control-group">
         <label>Mode de Terrain :</label>
         <div className="radio-group">
+          {/* Mode simple : coût uniforme */}
           <label className="radio-label">
             <input
               type="radio"
@@ -31,6 +40,7 @@ const Controls = ({
             />
             <span>Simple (coût uniforme)</span>
           </label>
+          {/* Mode pondéré : coûts variés */}
           <label className="radio-label">
             <input
               type="radio"
@@ -44,6 +54,7 @@ const Controls = ({
         </div>
       </div>
 
+      {/* Sélection de la taille de grille */}
       <div className="control-group">
         <label>Taille de la Grille :</label>
         <select
@@ -57,6 +68,7 @@ const Controls = ({
         </select>
       </div>
 
+      {/* Sélection de l'algorithme */}
       <div className="control-group">
         <label>Algorithme :</label>
         <select
@@ -70,6 +82,7 @@ const Controls = ({
         </select>
       </div>
 
+      {/* Sélection de l'heuristique (A* uniquement) */}
       {algorithm === 'astar' && (
         <div className="control-group">
           <label>Heuristique :</label>
@@ -85,23 +98,17 @@ const Controls = ({
         </div>
       )}
 
+      {/* Boutons d'action */}
       <div className="button-group">
-        <button
-          onClick={onStart}
-          disabled={isRunning}
-          className="btn btn-primary"
-        >
+        <button onClick={onStart} disabled={isRunning} className="btn btn-primary">
           {isRunning ? 'En cours...' : 'Démarrer'}
         </button>
-        <button
-          onClick={onReset}
-          disabled={isRunning}
-          className="btn btn-secondary"
-        >
+        <button onClick={onReset} disabled={isRunning} className="btn btn-secondary">
           Réinitialiser
         </button>
       </div>
 
+      {/* Légende des couleurs */}
       <div className="legend">
         <h3>Légende</h3>
         <div className="legend-item">
@@ -116,6 +123,7 @@ const Controls = ({
           <div className="legend-color obstacle"></div>
           <span>Obstacles</span>
         </div>
+        {/* Légende terrain (mode pondéré uniquement) */}
         {terrainMode === 'weighted' && (
           <>
             <div className="legend-item">

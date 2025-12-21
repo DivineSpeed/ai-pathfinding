@@ -1,7 +1,19 @@
+/**
+ * Composant Metrics - Affichage des métriques de performance
+ * 
+ * Ce composant affiche les statistiques et métriques calculées
+ * après l'exécution d'un algorithme de recherche.
+ */
+
 import React from 'react';
 import './Metrics.css';
 
+/**
+ * Panneau d'affichage des métriques de performance
+ * @param {Object} props.results - Résultats de l'algorithme (null si pas encore exécuté)
+ */
 const Metrics = ({ results }) => {
+  // Affichage par défaut si aucun résultat
   if (!results) {
     return (
       <div className="metrics-panel">
@@ -11,7 +23,7 @@ const Metrics = ({ results }) => {
     );
   }
 
-  // Determine the metric we're comparing (steps in simple mode, cost in weighted)
+  // Calcul du ratio d'optimalité selon le mode (coût ou étapes)
   const foundValue = results.isWeighted ? results.pathCost : results.pathLength;
   const optimalValue = results.optimalPathLength;
   const optimalityRatio = optimalValue / foundValue;
@@ -20,8 +32,9 @@ const Metrics = ({ results }) => {
     <div className="metrics-panel">
       <h2>Métriques de Performance</h2>
 
-      {/* Primary Results */}
+      {/* Résultats principaux */}
       <div className="metric-grid">
+        {/* Statut de la recherche */}
         <div className="metric-card">
           <div className="metric-label">Statut</div>
           <div className={`metric-value ${results.success ? 'success' : 'failure'}`}>
@@ -29,16 +42,19 @@ const Metrics = ({ results }) => {
           </div>
         </div>
 
+        {/* Nombre de nœuds explorés */}
         <div className="metric-card">
           <div className="metric-label">Nœuds Explorés</div>
           <div className="metric-value">{results.nodesExpanded.toLocaleString()}</div>
         </div>
 
+        {/* Temps d'exécution */}
         <div className="metric-card">
           <div className="metric-label">Temps d'Exécution</div>
           <div className="metric-value">{results.executionTime.toFixed(2)} ms</div>
         </div>
 
+        {/* Longueur du chemin */}
         <div className="metric-card">
           <div className="metric-label">Longueur du Chemin</div>
           <div className="metric-value">
@@ -46,6 +62,7 @@ const Metrics = ({ results }) => {
           </div>
         </div>
 
+        {/* Coût total (mode pondéré uniquement) */}
         {results.isWeighted && (
           <div className="metric-card">
             <div className="metric-label">Coût Total du Chemin</div>
@@ -55,6 +72,7 @@ const Metrics = ({ results }) => {
           </div>
         )}
 
+        {/* Heuristique utilisée (A* uniquement) */}
         {results.heuristic && (
           <div className="metric-card">
             <div className="metric-label">Heuristique Utilisée</div>
@@ -63,9 +81,10 @@ const Metrics = ({ results }) => {
         )}
       </div>
 
+      {/* Métriques détaillées si chemin trouvé */}
       {results.success && (
         <>
-          {/* Exploration Efficiency Section */}
+          {/* Section efficacité d'exploration */}
           <div className="efficiency-score">
             <h3>📊 Efficacité d'Exploration</h3>
 
@@ -102,7 +121,7 @@ const Metrics = ({ results }) => {
             </div>
           </div>
 
-          {/* Path Quality Section */}
+          {/* Section qualité du chemin */}
           <div className="efficiency-score">
             <h3>🎯 Qualité du Chemin</h3>
 
@@ -137,7 +156,7 @@ const Metrics = ({ results }) => {
             </div>
           </div>
 
-          {/* A* Specific Metrics */}
+          {/* Métriques spécifiques A* */}
           {results.avgHeuristic !== undefined && (
             <div className="efficiency-score">
               <h3>⭐ Métriques Spécifiques A*</h3>
@@ -162,6 +181,7 @@ const Metrics = ({ results }) => {
         </>
       )}
 
+      {/* Statistiques si échec */}
       {!results.success && (
         <div className="efficiency-score">
           <h3>🗺️ Statistiques d'Exploration</h3>
@@ -188,4 +208,3 @@ const Metrics = ({ results }) => {
 };
 
 export default Metrics;
-
