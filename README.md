@@ -50,7 +50,7 @@ L'application permet de visualiser en temps réel le comportement de chaque algo
 
 ```bash
 # Cloner le repository
-git clone https://github.com/votre-username/ai-pathfinding.git
+git clone https://github.com/DivineSpeed/ai-pathfinding.git
 cd ai-pathfinding
 
 # Installer les dépendances
