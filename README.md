@@ -2,7 +2,7 @@
 
 Application web React pour visualiser et comparer les algorithmes de recherche (BFS, DFS, A*) sur des problèmes de labyrinthe.
 
-**Projet réalisé dans le cadre du module Intelligence Artificielle — IGL4, FST 2024-2025**
+**Projet réalisé dans le cadre du module Intelligence Artificielle, FST 2024-2025**
 
 ---
 
@@ -117,8 +117,6 @@ src/
 ## 👤 Auteur
 
 **Mohamed Said Chbinou**  
-Cycle Ingénieur en Génie Logiciel — IGL4  
-Faculté des Sciences de Tunis
 
 **Encadré par** : Dr. Narjes Doggaz
 
