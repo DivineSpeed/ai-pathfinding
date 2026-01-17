@@ -163,6 +163,31 @@ function App() {
 
       // Enregistrement et visualisation des résultats
       setResults(algorithmResults);
+
+      // Log des résultats pour le rapport
+      const algoName = algorithm === 'astar' ? `A* (${heuristic})` : algorithm.toUpperCase();
+      const mode = terrainMode === 'weighted' ? 'Pondéré' : 'Simple';
+      console.log('\n========================================');
+      console.log(`📊 RÉSULTATS: ${algoName} | Grille: ${gridSize} | Mode: ${mode}`);
+      console.log('========================================');
+      console.log(`✓ Statut: ${algorithmResults.success ? 'Chemin trouvé' : 'Aucun chemin'}`);
+      console.log(`📍 Nœuds explorés: ${algorithmResults.nodesExpanded}`);
+      console.log(`🔀 Nœuds générés: ${algorithmResults.totalSuccessors}`);
+      console.log(`⏱️  Temps d'exécution: ${algorithmResults.executionTime.toFixed(2)} ms`);
+      console.log(`📏 Longueur du chemin: ${algorithmResults.pathLength}`);
+      if (algorithmResults.isWeighted) {
+        console.log(`💰 Coût du chemin: ${algorithmResults.pathCost}`);
+      }
+      console.log(`🌿 Facteur de branchement: ${algorithmResults.branchingFactor.toFixed(2)}`);
+      console.log(`🎯 Pénétrance: ${(algorithmResults.penetrance * 100).toFixed(2)}%`);
+      console.log(`📊 Couverture spatiale: ${algorithmResults.completionPercentage.toFixed(1)}%`);
+      if (algorithmResults.heuristic) {
+        console.log(`🧭 Heuristique: ${algorithmResults.heuristic}`);
+        console.log(`📐 h moyen: ${algorithmResults.avgHeuristic.toFixed(2)}`);
+        console.log(`📈 f moyen: ${algorithmResults.avgFValue.toFixed(2)}`);
+      }
+      console.log('----------------------------------------');
+
       await visualizeAlgorithm(algorithmResults);
     } catch (error) {
       console.error('Erreur lors de l\'exécution de l\'algorithme:', error);

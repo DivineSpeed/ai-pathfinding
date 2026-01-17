@@ -42,6 +42,12 @@ const Metrics = ({ results }) => {
           </div>
         </div>
 
+        {/* Nombre de nœuds générés (successeurs) */}
+        <div className="metric-card">
+          <div className="metric-label">Nœuds Générés</div>
+          <div className="metric-value">{results.totalSuccessors.toLocaleString()}</div>
+        </div>
+
         {/* Nombre de nœuds explorés */}
         <div className="metric-card">
           <div className="metric-label">Nœuds Explorés</div>
