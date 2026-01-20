@@ -66,7 +66,7 @@ L'application permet de visualiser en temps réel le comportement de chaque algo
 ## 🚀 Installation
 
 ```bash
-# Cloner le repository
+# Cloner le dépôt
 git clone https://github.com/DivineSpeed/ai-pathfinding.git
 cd ai-pathfinding
 
@@ -114,11 +114,13 @@ src/
 
 ## 📊 Résultats Attendus
 
-| Algorithme | Optimalité | Efficacité | Mémoire |
-|------------|------------|------------|---------|
-| BFS | ✅ Optimal (coût uniforme) | Moyenne | Élevée |
-| DFS | ❌ Non optimal | Faible | Faible |
-| A* | ✅ Optimal (si h admissible) | Élevée | Moyenne |
+| Algorithme | Optimalité (Simple) | Optimalité (Pondéré) | Efficacité | Mémoire |
+|------------|---------------------|----------------------|------------|---------|
+| BFS | ✅ Oui | ❌ Non | Moyenne | Élevée |
+| DFS | ❌ Non | ❌ Non | Faible* | Faible |
+| A* | ✅ Oui | ✅ Oui | Élevée | Moyenne |
+
+*\*DFS peut être rapide sur de grands espaces mais la qualité du chemin est faible.*
 
 ---
 
